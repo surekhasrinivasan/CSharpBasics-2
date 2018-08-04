@@ -19,7 +19,21 @@ namespace EnumeratorEnumerable
             oyears.Add(2002);
             oyears.Add(2003);
 
-          
+            IEnumerable<int> ienum = (IEnumerable<int>)oyears;
+            
+            foreach(int i in ienum)
+            {
+                Console.WriteLine(i);
+            }
+                Console.WriteLine();
+
+            IEnumerator<int> ienumerat = oyears.GetEnumerator();
+
+            while (ienumerat.MoveNext())
+            {
+                Console.WriteLine(ienumerat.Current.ToString());
+            }
+            Console.ReadLine();
         }
     }
 }
