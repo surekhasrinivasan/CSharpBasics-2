@@ -19,21 +19,47 @@ namespace EnumeratorEnumerable
             oyears.Add(2002);
             oyears.Add(2003);
 
-            IEnumerable<int> ienum = (IEnumerable<int>)oyears;
+            //IEnumerable<int> ienum = (IEnumerable<int>)oyears;
             
-            foreach(int i in ienum)
-            {
-                Console.WriteLine(i);
-            }
-                Console.WriteLine();
+            //foreach(int i in ienum)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //    Console.WriteLine();
 
             IEnumerator<int> ienumerat = oyears.GetEnumerator();
 
-            while (ienumerat.MoveNext())
-            {
-                Console.WriteLine(ienumerat.Current.ToString());
-            }
+            Iterate1990to2001(ienumerat);
+
+
+
+            //while (ienumerat.MoveNext())
+            //{
+            //    Console.WriteLine(ienumerat.Current.ToString());
+            //}
             Console.ReadLine();
+        }
+
+        static void Iterate1990to2001(IEnumerator<int> o)
+        {
+            //iterate value from 1990 to 2001
+            while(o.MoveNext())
+            {
+                Console.WriteLine(o.Current.ToString());
+                if(Convert.ToInt16(o.Current) > 2000)
+                {
+                    Iterate2001andAbove(o);
+                }
+            }
+        }
+
+        static void Iterate2001andAbove(IEnumerator<int> o)
+        {
+            //iterate value from 2001 and above 
+            while(o.MoveNext())
+            {
+                Console.WriteLine(o.Current.ToString());
+            }
         }
     }
 }
