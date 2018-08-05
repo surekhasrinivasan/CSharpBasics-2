@@ -19,7 +19,8 @@ namespace EnumeratorEnumerable
             oyears.Add(2002);
             oyears.Add(2003);
 
-            //IEnumerable<int> ienum = (IEnumerable<int>)oyears;
+            IEnumerable<int> ienum = (IEnumerable<int>)oyears;
+            Iterate1990to2001(ienum);
             
             //foreach(int i in ienum)
             //{
@@ -27,9 +28,8 @@ namespace EnumeratorEnumerable
             //}
             //    Console.WriteLine();
 
-            IEnumerator<int> ienumerat = oyears.GetEnumerator();
-
-            Iterate1990to2001(ienumerat);
+            //IEnumerator<int> ienumerat = oyears.GetEnumerator();
+            //Iterate1990to2001(ienumerat);
 
 
 
@@ -40,26 +40,48 @@ namespace EnumeratorEnumerable
             Console.ReadLine();
         }
 
-        static void Iterate1990to2001(IEnumerator<int> o)
+        //static void Iterate1990to2001(IEnumerator<int> o)
+        //{
+        //    //iterate value from 1990 to 2001
+        //    while(o.MoveNext())
+        //    {
+        //        Console.WriteLine(o.Current.ToString());
+        //        if(Convert.ToInt16(o.Current) > 2000)
+        //        {
+        //            Iterate2001andAbove(o);
+        //        }
+        //    }
+        //}
+
+        //static void Iterate2001andAbove(IEnumerator<int> o)
+        //{
+        //    //iterate value from 2001 and above 
+        //    while(o.MoveNext())
+        //    {
+        //        Console.WriteLine(o.Current.ToString());
+        //    }
+        //}
+
+        static void Iterate1990to2001(IEnumerable<int> o)
         {
             //iterate value from 1990 to 2001
-            while(o.MoveNext())
+            foreach(int i in o)
             {
-                Console.WriteLine(o.Current.ToString());
-                if(Convert.ToInt16(o.Current) > 2000)
+                Console.WriteLine(i);
+                if (i > 2000)
                 {
                     Iterate2001andAbove(o);
                 }
             }
         }
 
-        static void Iterate2001andAbove(IEnumerator<int> o)
+        static void Iterate2001andAbove(IEnumerable<int> o)
         {
-            //iterate value from 2001 and above 
-            while(o.MoveNext())
+            foreach(int i in o)
             {
-                Console.WriteLine(o.Current.ToString());
+                Console.WriteLine(i);
             }
         }
+
     }
 }
