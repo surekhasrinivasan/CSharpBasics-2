@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//In this project we learn the difference between IEnumerable and IEnumerator
+//The biggest difference between IEnumerable ad IEnumerator is that IEnumerator remember states while IEnumerable does not. 
 namespace EnumeratorEnumerable
 {
     class Program
